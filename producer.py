@@ -25,4 +25,4 @@ while True:
         print("-" * 50)
 
     # Wait for 5 minutes
-    time.sleep(300)
+    time.sleep(10)
