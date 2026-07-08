@@ -9,7 +9,7 @@ URL = (
     f"https://api.open-meteo.com/v1/forecast?"
     f"latitude={LATITUDE}"
     f"&longitude={LONGITUDE}"
-    f"&current=temperature_2m,relative_humidity_2m,pressure_msl"
+    f"&current=temperature_2m,relative_humidity_2m,pressure_msl,rain"
 )
 
 def get_weather():
@@ -25,6 +25,7 @@ def get_weather():
             "temperature": current["temperature_2m"],
             "humidity": current["relative_humidity_2m"],
             "pressure": current["pressure_msl"],
+            "rain": current["rain"],
             "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         }
 

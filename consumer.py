@@ -25,26 +25,33 @@ for message in consumer:
     last_12.append(weather)
     last_36.append(weather)
 
+    print(f"Readings received: {len(last_12)} / 12")
+    print(f"Readings received: {len(last_36)} / 36")
+
     # -------- 1 Hour Average --------
     if len(last_12) == 12:
         avg_temp = sum(x["temperature"] for x in last_12) / 12
         avg_humidity = sum(x["humidity"] for x in last_12) / 12
         avg_pressure = sum(x["pressure"] for x in last_12) / 12
+        avg_rain = sum(x["rain"] for x in last_12) / 12
 
         print("\n===== 1 Hour Average =====")
         print(f"Temperature : {avg_temp:.2f} °C")
         print(f"Humidity    : {avg_humidity:.2f} %")
         print(f"Pressure    : {avg_pressure:.2f} hPa")
+        print(f"Rain        : {avg_rain:.2f} mm")
 
     # -------- 3 Hour Average --------
     if len(last_36) == 36:
         avg_temp = sum(x["temperature"] for x in last_36) / 36
         avg_humidity = sum(x["humidity"] for x in last_36) / 36
         avg_pressure = sum(x["pressure"] for x in last_36) / 36
+        avg_rain = sum(x["rain"] for x in last_36) / 36
 
         print("\n===== 3 Hour Average =====")
         print(f"Temperature : {avg_temp:.2f} °C")
         print(f"Humidity    : {avg_humidity:.2f} %")
         print(f"Pressure    : {avg_pressure:.2f} hPa")
+        print(f"Rain        : {avg_rain:.2f} mm")
 
     print("-" * 50)
