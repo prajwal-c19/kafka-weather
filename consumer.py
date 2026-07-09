@@ -10,7 +10,7 @@ consumer = KafkaConsumer(
     value_deserializer=lambda m: json.loads(m.decode("utf-8"))
 )
 
-print("Weather Consumer Started...\n")
+print("Weather Consumer is loading..\n")
 
 # Store last readings
 last_12 = deque(maxlen=12)   # 1 hour (12 × 5 min)
@@ -19,7 +19,7 @@ last_36 = deque(maxlen=36)   # 3 hours (36 × 5 min)
 for message in consumer:
     weather = message.value
 
-    print("\nNew Weather Data Received")
+    print("\nNew Weather Data is Received")
     print(weather)
 
     last_12.append(weather)

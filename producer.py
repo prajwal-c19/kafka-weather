@@ -11,7 +11,7 @@ producer = KafkaProducer(
 
 TOPIC = "weather-mangalore"
 
-print("Weather Producer Started...")
+print("Weather Producer is loadinggit..")
 
 while True:
     weather = get_weather()
